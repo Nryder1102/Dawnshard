@@ -48,9 +48,8 @@ static class TestContainers
             PostgresHost = "localhost";
             PostgresPort = PostgresContainerPort;
 
-            RedisHost = "localhost";
-            RedisPort = RedisContainerPort;
-        }
+        RedisHost = "192.168.2.178";
+        RedisPort = RedisContainerPort;
     }
 
     private static void CreateContainers(

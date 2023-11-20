@@ -48,6 +48,7 @@ public class SavefileController : ControllerBase
     }
 
     [HttpGet("export/{viewerId:long}")]
+    [AllowAnonymous]
     public async Task<IActionResult> Export(long viewerId, [FromServices] ILoadService loadService)
     {
         string accountId = await LookupAccountId(viewerId);

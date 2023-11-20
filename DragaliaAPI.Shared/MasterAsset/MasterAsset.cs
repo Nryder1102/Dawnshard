@@ -265,25 +265,25 @@ public static class MasterAsset
     /// <summary>
     /// Dragon StoryId Arrays indexed by DragonId
     /// </summary>
-    public static MasterAssetData<int, StoryData> DragonStories =>
+    public static readonly MasterAssetData<int, StoryData> DragonStories =
         new("Story/DragonStories.json", x => x.id);
 
     /// <summary>
     /// Character StoryId Arrays indexed by CharaId
     /// </summary>
-    public static MasterAssetData<int, StoryData> CharaStories =>
+    public static readonly MasterAssetData<int, StoryData> CharaStories =
         new("Story/CharaStories.json", x => x.id);
 
-    public static MasterAssetData<int, UnitStory> UnitStory =>
+    public static readonly MasterAssetData<int, UnitStory> UnitStory =
         new("Story/UnitStory.json", x => x.Id);
 
-    public static MasterAssetData<int, QuestStory> QuestStory =>
+    public static readonly MasterAssetData<int, QuestStory> QuestStory =
         new("Story/QuestStory.json", x => x.Id);
 
-    public static MasterAssetData<int, EventStory> EventStory =>
+    public static readonly MasterAssetData<int, EventStory> EventStory =
         new("Story/EventStory.json", x => x.Id);
 
-    public static MasterAssetData<int, QuestStoryRewardInfo> QuestStoryRewardInfo =>
+    public static readonly MasterAssetData<int, QuestStoryRewardInfo> QuestStoryRewardInfo =
         new("Story/QuestStoryRewardInfo.json", x => x.Id);
 
     #endregion

@@ -58,6 +58,7 @@ public static class DatabaseConfiguration
             new()
             {
                 Host = host ?? "postgres",
+                Database = "dragalia",
                 Username = Environment.GetEnvironmentVariable("POSTGRES_USER") ?? "postgres",
                 Password = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD"),
                 Database = Environment.GetEnvironmentVariable("POSTGRES_DB"),
