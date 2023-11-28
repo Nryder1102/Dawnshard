@@ -1,4 +1,5 @@
 ﻿using System.Collections.Frozen;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
@@ -100,10 +101,16 @@ public class MasterAssetData<TKey, TItem>
         return new FrozenKeyedCollection(items, this.keySelector);
     }
 
-    private class FrozenKeyedCollection(IReadOnlyCollection<TItem> items, Func<TItem, TKey> selector)
+    private class FrozenKeyedCollection
     {
-        public readonly FrozenSet<TItem> Items = items.ToFrozenSet();
-        private readonly FrozenDictionary<TKey, TItem> dictionary = items.ToFrozenDictionary(selector, x => x);
+        public readonly ImmutableArray<TItem> Items;
+        private readonly FrozenDictionary<TKey, TItem> dictionary;
+
+        public FrozenKeyedCollection(IReadOnlyCollection<TItem> items, Func<TItem, TKey> selector)
+    {
+            this.dictionary = items.ToFrozenDictionary(selector, x => x);
+            this.Items = this.dictionary.Values;
+        }
 
         public TItem this[TKey key] => this.dictionary[key];
 
