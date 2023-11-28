@@ -92,9 +92,11 @@ public class MasterAssetData<TKey, TItem>
             jsonFilename
         );
 
+        using FileStream fs = File.OpenRead(path);
+
         IReadOnlyCollection<TItem> items =
             JsonSerializer.Deserialize<IReadOnlyCollection<TItem>>(
-                File.ReadAllText(path),
+                fs,
                 MasterAssetJsonOptions.Instance
             ) ?? throw new JsonException("Deserialized IEnumerable was null");
 
@@ -107,7 +109,7 @@ public class MasterAssetData<TKey, TItem>
         private readonly FrozenDictionary<TKey, TItem> dictionary;
 
         public FrozenKeyedCollection(IReadOnlyCollection<TItem> items, Func<TItem, TKey> selector)
-    {
+        {
             this.dictionary = items.ToFrozenDictionary(selector, x => x);
             this.Items = this.dictionary.Values;
         }
