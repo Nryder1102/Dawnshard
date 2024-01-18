@@ -9,7 +9,7 @@ public record UnitStory(
     int UnlockQuestStoryId
 )
 {
-    public StoryTypes Type => ReleaseTriggerId > 20000000 ? StoryTypes.Dragon : StoryTypes.Chara;
+    public StoryTypes Type => ReleaseTriggerId > 20000000 && ReleaseTriggerId < 29999999 ? StoryTypes.Dragon : StoryTypes.Chara;
 
     public bool IsFirstEpisode => UnlockTriggerStoryId == default;
 }

@@ -899,4 +899,10 @@ public enum Charas
 
     [TextLabel("Humanoid Zodiark")]
     HumanoidZodiark = 10950503,
+
+    [TextLabel("Alice")]
+    Alice = 30000001,
+
+    [TextLabel("Arthur")]
+    Arthur = 30000002,
 }

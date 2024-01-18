@@ -662,7 +662,8 @@ public class CharaController(
                 int[] charaStories = MasterAsset.CharaStories
                     .Get((int)playerCharData.CharaId)
                     .storyIds;
-
+                
+                
                 int nextStoryUnlockIndex =
                     await storyRepository.Stories
                         .Where(x => charaStories.Contains(x.StoryId))
